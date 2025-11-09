@@ -1,0 +1,22 @@
+"" 
+# Virtual environment
+venv/
+.env/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Database and logs
+db.sqlite3
+*.log
+
+# IDE and system files
+.vscode/
+.DS_Store
+
+# Django specific
+migrations/
+media/
+staticfiles/

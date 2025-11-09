@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Campus Exchange</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    {% extends ' <market>
+    <templates>
+    <market>home.html' %}
+{% block content %}
+<!-- Categories Section -->
+<section class="bg-teal-50 text-center py-12">
+  <h2 class="text-3xl font-bold text-teal-800 mb-6">Explore Categories</h2>
+  <p class="text-gray-600 mb-10">Find items from various categories within your campus community.</p>
+
+  <div class="flex flex-wrap justify-center gap-8">
+    <!-- Books -->
+    <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg transition transform hover:-translate-y-1">
+      <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" class="mx-auto w-12 mb-2" alt="Books">
+      <p class="font-semibold">Books</p>
+    </div>
+
+    <!-- Gadgets -->
+    <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg transition transform hover:-translate-y-1">
+      <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" class="mx-auto w-12 mb-2" alt="Gadgets">
+      <p class="font-semibold">Gadgets</p>
+    </div>
+
+    <!-- Fashion -->
+    <div class="bg-white shadow-md p-6 rounded-xl w-40 hover:shadow-lg text-center transition">
+  <i data-lucide="shirt" class="w-10 h-10 text-pink-600 mx-auto mb-3"></i>
+  <p class="font-semibold text-gray-800">Fashion</p>
+</div>
+
+    <!-- Subscriptions -->
+    <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg transition transform hover:-translate-y-1">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="mx-auto w-12 mb-2" alt="Subscriptions">
+      <p class="font-semibold">Subscriptions</p>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<hr class="my-10 border-gray-300 w-3/4 mx-auto">
+
+<!-- Featured Listings -->
+<section class="py-10 text-center bg-white">
+  <h2 class="text-2xl font-semibold text-teal-800 mb-6">Featured Listings by Category</h2>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 justify-center">
+
+    <!-- Books -->
+    <div class="bg-teal-50 p-4 rounded-lg shadow hover:shadow-lg transition">
+      <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Books" class="mx-auto w-10 mb-2">
+      <h3 class="font-bold text-gray-800 mb-1">Books</h3>
+      <p class="text-gray-600 text-sm">Buy or sell academic books and novels within your campus.</p>
+    </div>
+
+    <!-- Gadgets -->
+    <div class="bg-teal-50 p-4 rounded-lg shadow hover:shadow-lg transition">
+      <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="Gadgets" class="mx-auto w-10 mb-2">
+      <h3 class="font-bold text-gray-800 mb-1">Gadgets</h3>
+      <p class="text-gray-600 text-sm">Exchange old gadgets like phones, headphones, and laptops.</p>
+    </div>
+
+    <!-- Fashion -->
+    <div class="bg-teal-50 p-4 rounded-lg shadow hover:shadow-lg transition">
+    <i data-lucide="shirt" class="w-10 h-10 text-pink-600 mx-auto mb-3"></i>
+  <h3 class="font-bold text-gray-800 mb-1">Fashion</h3>
+  <p class="text-gray-600 text-sm">Trade trendy clothes, shoes, and accessories.</p>
+      
+    </div>
+
+    <!-- Subscriptions -->
+    <div class="bg-teal-50 p-4 rounded-lg shadow hover:shadow-lg transition">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Subscriptions" class="mx-auto w-10 mb-2">
+      <h3 class="font-bold text-gray-800 mb-1">Subscriptions</h3>
+      <p class="text-gray-600 text-sm">Share streaming or software subscriptions safely.</p>
+    </div>
+  </div>
+</section>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+{% endblock %}
+</body>
+</html>  
+  

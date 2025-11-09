@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Exchange</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-teal-700 text-white py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
+            <h1 class="text-2xl font-bold">Campus Exchange</h1>
+            <ul class="flex space-x-6">
+                <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                <li><a href="{% url 'categories' %}" class="hover:underline">Categories</a></li>
+                <li><a href="{% url 'add_listing' %}" class="hover:underline">Add Listing</a></li>
+                <li><a href="{% url 'contact' %}" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-teal-100 py-12 text-center">
+        <h2 class="text-4xl font-bold text-teal-700 mb-2">Welcome to Campus Exchange</h2>
+        <p class="text-gray-700 mb-6">Buy, sell, and exchange items easily within your college community.</p>
+        <a href="{% url 'add_listing' %}" class="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700">Post a Listing</a>
+    </section>
+
+    <!-- Category Section -->
+    <section class="py-10 max-w-6xl mx-auto text-center">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Explore Categories</h3>
+        <div class="flex flex-wrap justify-center gap-6">
+            <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg">
+                <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" class="mx-auto w-12 mb-2" alt="Books">
+                <p class="font-semibold">Books</p>
+            </div>
+            <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg">
+                <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" class="mx-auto w-12 mb-2" alt="Gadgets">
+                <p class="font-semibold">Gadgets</p>
+            </div>
+            <div class="bg-white shadow-md p-6 rounded-xl w-40 hover:shadow-lg text-center transition">
+                <i data-lucide="shirt" class="w-10 h-10 text-pink-600 mx-auto mb-3"></i>
+                <p class="font-semibold text-gray-800">Fashion</p>
+            </div>
+            <div class="bg-white shadow-md p-4 rounded-lg w-40 hover:shadow-lg">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="mx-auto w-12 mb-2" alt="Accessories">
+                <p class="font-semibold">Subscriptions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Listings -->
+    <section class="py-10 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Latest Listings</h3>
+
+            <!-- 🔍 Search Bar -->
+            <form method="GET" action="{% url 'home' %}" class="flex justify-center mb-8">
+                <input 
+                    type="text" 
+                    name="q" 
+                    value="{{ request.GET.q }}" 
+                    placeholder="Search items by title or description..." 
+                    class="w-1/2 border border-gray-300 rounded-l-lg p-2 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                <button 
+                    type="submit" 
+                    class="bg-teal-600 text-white px-4 rounded-r-lg hover:bg-teal-700">
+                    Search
+                </button>
+            </form>
+
+            {% if listings %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {% for item in listings %}
+                <div class="bg-teal-50 p-4 rounded-2xl shadow hover:shadow-lg transition">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}" class="rounded-lg h-40 w-full object-cover mb-3">
+                    {% endif %}
+                    <h2 class="text-lg font-bold text-gray-900 mb-1">{{ item.title }}</h2>
+                    <p class="text-gray-600 text-sm mb-2">{{ item.description|truncatewords:10 }}</p>
+                    <p class="text-green-600 font-semibold mb-1">₹{{ item.price }}</p>
+                    <p class="text-sm text-gray-500">Seller: {{ item.seller_name }}</p>
+                    <p class="text-sm text-gray-500">📞 {{ item.contact_info }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-center text-gray-600 mt-6">No listings found. Try another search term!</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-teal-600 text-white text-center py-4 mt-10">
+        <p>&copy; 2025 Campus Exchange. Built by students, for students 💚</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
+
+</body>
+</html>
